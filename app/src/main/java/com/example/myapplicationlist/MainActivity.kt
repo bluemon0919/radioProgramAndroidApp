@@ -1,5 +1,7 @@
 package com.example.myapplicationlist
 
+import android.content.Intent
+import android.net.Uri
 import android.os.AsyncTask
 import android.os.Bundle
 import android.view.View
@@ -11,7 +13,6 @@ import com.example.myapplicationlist.adapter.CasarealRecycleViewAdapter
 import com.example.myapplicationlist.model.RowData
 import org.json.JSONArray
 import org.json.JSONException
-import org.json.JSONObject
 import java.io.BufferedReader
 import java.io.IOException
 import java.io.InputStreamReader
@@ -41,6 +42,10 @@ class MainActivity : AppCompatActivity() {
         adptWk.setOnItemClickListener(object:CasarealRecycleViewAdapter.OnItemClickListener{
             override fun onItemClickListener(view: View, position: Int, clickedText: String) {
                 Toast.makeText(applicationContext, "${clickedText}がタップされました", Toast.LENGTH_LONG).show()
+
+                val intent =
+                    Intent(Intent.ACTION_VIEW, Uri.parse("https://www.google.co.jp"))
+                startActivity(intent)
             }
         })
         adpt = adptWk
