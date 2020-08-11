@@ -5,6 +5,7 @@ import android.net.Uri
 import android.os.AsyncTask
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -49,11 +50,14 @@ class MainActivity : AppCompatActivity() {
             }
         })
         adpt = adptWk
-
         rv.setAdapter(adpt)
 
-        // localhost
         val url = "http://10.0.2.2:8080/api/rowdata"
+        val myButton = findViewById<Button>(R.id.button1)
+        myButton.setOnClickListener(View.OnClickListener {
+            WebAPITask().execute(url)
+        })
+        
         WebAPITask().execute(url)
     }
 
