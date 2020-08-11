@@ -2,6 +2,8 @@ package com.example.myapplicationlist
 
 import android.os.AsyncTask
 import android.os.Bundle
+import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -32,8 +34,17 @@ class MainActivity : AppCompatActivity() {
         rv.setLayoutManager(llm)
         rv.setHasFixedSize(true)
 
-        adpt = CasarealRecycleViewAdapter(myDataSet)
-        //adpt = createDataset()?.let { CasarealRecycleViewAdapter(it) }
+        val adptWk = CasarealRecycleViewAdapter(myDataSet)
+        //adpt = createDataset()?.let { CasarealRecycleViewAdapter(it)
+
+        // インターフェースの実装
+        adptWk.setOnItemClickListener(object:CasarealRecycleViewAdapter.OnItemClickListener{
+            override fun onItemClickListener(view: View, position: Int, clickedText: String) {
+                Toast.makeText(applicationContext, "${clickedText}がタップされました", Toast.LENGTH_LONG).show()
+            }
+        })
+        adpt = adptWk
+
         rv.setAdapter(adpt)
 
         // localhost
