@@ -1,13 +1,12 @@
 package com.example.myapplicationlist
 
-import android.content.Intent
-import android.net.Uri
+import SampleDialogFragment
 import android.os.AsyncTask
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.DialogFragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplicationlist.adapter.CasarealRecycleViewAdapter
@@ -23,7 +22,6 @@ import java.net.URL
 
 class MainActivity : AppCompatActivity() {
 
-    private var llm: LinearLayoutManager? = null
     var adpt: CasarealRecycleViewAdapter? = null
     var myDataSet: MutableList<RowData> = ArrayList()
 
@@ -37,16 +35,12 @@ class MainActivity : AppCompatActivity() {
         rv.setHasFixedSize(true)
 
         val adptWk = CasarealRecycleViewAdapter(myDataSet)
-        //adpt = createDataset()?.let { CasarealRecycleViewAdapter(it)
 
         // インターフェースの実装
         adptWk.setOnItemClickListener(object:CasarealRecycleViewAdapter.OnItemClickListener{
             override fun onItemClickListener(view: View, position: Int, clickedText: String) {
-                Toast.makeText(applicationContext, "${clickedText}がタップされました", Toast.LENGTH_LONG).show()
-
-                val intent =
-                    Intent(Intent.ACTION_VIEW, Uri.parse("https://www.google.co.jp"))
-                startActivity(intent)
+                val dialog: DialogFragment = SampleDialogFragment()
+                dialog.show(supportFragmentManager, "tag")
             }
         })
         adpt = adptWk
