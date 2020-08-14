@@ -5,9 +5,11 @@ import android.net.Uri
 import android.os.Bundle
 import android.widget.Toast
 import androidx.fragment.app.DialogFragment
+import com.example.myapplicationlist.model.RowData
 
-
-class SampleDialogFragment : DialogFragment() {
+class SelectorDialogFragment(private val rowdata: RowData) :
+    DialogFragment() {
+    
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val strList = arrayOf("聴く","聴き終えた")
         return AlertDialog.Builder(activity)
@@ -20,7 +22,7 @@ class SampleDialogFragment : DialogFragment() {
                             Intent(Intent.ACTION_VIEW, Uri.parse("https://www.google.co.jp"))
                         startActivity(intent)
                     }
-                    1 -> Toast.makeText(activity, "「聴き終えた」は未実装です", Toast.LENGTH_LONG).show()
+                    1 -> Toast.makeText(activity, "${rowdata.getDetail()}がタップされました", Toast.LENGTH_LONG).show()
                     else -> {
                     }
                 }

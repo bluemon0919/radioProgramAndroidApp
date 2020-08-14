@@ -1,6 +1,6 @@
 package com.example.myapplicationlist
 
-import SampleDialogFragment
+import SelectorDialogFragment
 import android.os.AsyncTask
 import android.os.Bundle
 import android.view.View
@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity() {
         // インターフェースの実装
         adptWk.setOnItemClickListener(object:CasarealRecycleViewAdapter.OnItemClickListener{
             override fun onItemClickListener(view: View, position: Int, clickedText: String) {
-                val dialog: DialogFragment = SampleDialogFragment()
+                val dialog: DialogFragment = SelectorDialogFragment(myDataSet[position])
                 dialog.show(supportFragmentManager, "tag")
             }
         })
