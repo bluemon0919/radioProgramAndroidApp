@@ -1,7 +1,7 @@
-# android-training
+# radioProgramAndroidApp
 
-Androidアプリを作成するためのトレーニング用リポジトリです。
-WebAPIをコールした結果をリスト表示します。
+ラジオ番組一覧のAndroidアプリです。
+[radioProgram](https://github.com/bluemon0919/radioProgramAPI2)のAPIの結果を表示し、Radikoアプリを呼び出します。
 
 ## 事前準備
 
@@ -10,8 +10,8 @@ WebAPIを用意します。<br>
 Goがインストールされていることが前提です。<br>
 
 ```bash
-git clone https://github.com/bluemon0919/go-training.git
-cd go-training/webapi/server
+git clone https://github.com/bluemon0919/radioProgramAPI2.git
+cd radioProgramAPI/server
 go run main.go
 ```
 
