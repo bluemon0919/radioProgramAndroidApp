@@ -17,12 +17,15 @@ class SelectorDialogFragment(private val rowdata: RowData) :
             .setItems(strList, { dialog, which ->
 
                 when (which) {
+                    // "聴く"を選択
                     0 -> {
+                        val url = rowdata.getURL()
                         val intent =
-                            Intent(Intent.ACTION_VIEW, Uri.parse("https://www.google.co.jp"))
+                            Intent(Intent.ACTION_VIEW, Uri.parse(url))
                         startActivity(intent)
                     }
-                    1 -> Toast.makeText(activity, "${rowdata.getDetail()}がタップされました", Toast.LENGTH_LONG).show()
+                    // "聴き終えた"を選択
+                    1 -> Toast.makeText(activity, "${rowdata.getTitle()}がタップされました", Toast.LENGTH_LONG).show()
                     else -> {
                     }
                 }

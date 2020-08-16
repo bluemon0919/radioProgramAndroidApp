@@ -9,10 +9,10 @@ import com.example.myapplicationlist.R;
 
 class CasarealViewHolder(itemView: View) : ViewHolder(itemView) {
     var titleView: TextView
-    var detailView: TextView
+    var deadlineView: TextView
 
     init {
         titleView = itemView.findViewById(R.id.title)
-        detailView = itemView.findViewById(R.id.detail)
+        deadlineView = itemView.findViewById(R.id.deadline)
     }
 }

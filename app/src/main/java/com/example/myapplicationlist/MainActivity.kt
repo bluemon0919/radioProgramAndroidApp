@@ -46,7 +46,7 @@ class MainActivity : AppCompatActivity() {
         adpt = adptWk
         rv.setAdapter(adpt)
 
-        val url = "http://10.0.2.2:8080/api/rowdata"
+        val url = "http://10.0.2.2:8080/api/list"
         val myButton = findViewById<Button>(R.id.button1)
         myButton.setOnClickListener(View.OnClickListener {
             WebAPITask().execute(url)
@@ -87,12 +87,18 @@ class MainActivity : AppCompatActivity() {
                 val dataset: MutableList<RowData> = ArrayList()
                 for (i in 0..parentJsonArray.length()-1) {
                     val detailJsonObj = parentJsonArray.getJSONObject(i)
-                    val title: String = detailJsonObj.getString("title")
-                    val detail: String = detailJsonObj.getString("detail")
+                    val id: String = detailJsonObj.getString("ID")
+                    val title: String = detailJsonObj.getString("Title")
+                    val weekday: String = detailJsonObj.getString("Weekday")
+                    val deadline: String = detailJsonObj.getString("Deadline")
+                    val url: String = detailJsonObj.getString("URL")
 
                     val data = RowData()
+                    data.setID(id)
                     data.setTitle(title)
-                    data.setDetail(detail)
+                    data.setWeekday(weekday)
+                    data.setDeadline(deadline)
+                    data.setURL(url)
                     dataset.add(data)
                 }
                 return dataset

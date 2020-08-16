@@ -24,11 +24,11 @@ class CasarealRecycleViewAdapter(private val list: MutableList<RowData>) :
 
     override fun onBindViewHolder(holder: CasarealViewHolder, position: Int) {
         holder.titleView.text = list[position].getTitle()
-        holder.detailView.text = list[position].getDetail()
+        holder.deadlineView.text = list[position].getDeadline()
 
         // タップしたときの動作
         holder.titleView.setOnClickListener {
-            listener.onItemClickListener(it, position, list[position].getDetail())
+            listener.onItemClickListener(it, position, list[position].getWeekday())
         }
     }
 
