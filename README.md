@@ -17,6 +17,14 @@ go run main.go
 
 ## 実行結果
 
-本リポジトリを実行すると以下の結果を得られます。
+サーバ設定をして実行すると次の通りアプリが起動します。
 
-<img src="https://user-images.githubusercontent.com/39006410/89749221-c7195d80-db01-11ea-998d-e6251517a4d9.png" width="250">
+<img width="250" alt="radioProgram1" src="https://user-images.githubusercontent.com/39006410/90325458-da6f7180-dfb6-11ea-9a7b-2bd7fbf895da.png">
+
+リスト項目をタップするとダイアログが表示されます。
+
+- "聴く"：RadikoのサイトまたはRadikoアプリが起動します。<br>
+- "聴き終えた"：リストから該当項目を除外します。
+
+
+<img width="250" alt="radioProgram2" src="https://user-images.githubusercontent.com/39006410/90325457-d6435400-dfb6-11ea-813e-1dc80ca168e5.png">
