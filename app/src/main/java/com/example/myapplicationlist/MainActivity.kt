@@ -35,18 +35,19 @@ class MainActivity : AppCompatActivity() {
         rv.setHasFixedSize(true)
 
         val adptWk = CasarealRecycleViewAdapter(myDataSet)
+        val url = "http://10.0.2.2:8080/api/list"
 
         // インターフェースの実装
         adptWk.setOnItemClickListener(object:CasarealRecycleViewAdapter.OnItemClickListener{
             override fun onItemClickListener(view: View, position: Int, clickedText: String) {
                 val dialog: DialogFragment = SelectorDialogFragment(myDataSet[position])
                 dialog.show(supportFragmentManager, "tag")
+                WebAPITask().execute(url)
             }
         })
         adpt = adptWk
         rv.setAdapter(adpt)
 
-        val url = "http://10.0.2.2:8080/api/list"
         val myButton = findViewById<Button>(R.id.button1)
         myButton.setOnClickListener(View.OnClickListener {
             WebAPITask().execute(url)
